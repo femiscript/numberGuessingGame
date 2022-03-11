@@ -36,6 +36,12 @@ body{
     box-shadow: 0 0 5px 0 #ee355d; */
 }
 
+.game-over,
+.reset{
+    cursor: pointer;
+    display: none;
+}
+
 .box h2{
     margin-bottom: 0;
     color: #ee355d;
@@ -68,6 +74,12 @@ p{
     -webkit-box-shadow: 0 0 5px 0 #ee355d;
     -o-box-shadow: 0 0 5px 0 #ee355d;
     box-shadow: 0 0 5px 0 #ee355d;
+}
+
+.centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .box button{

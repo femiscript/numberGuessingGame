@@ -1,16 +1,19 @@
 const guessBtn = document.querySelector(".guess-btn");
+const box = document.querySelectorAll(".box");
 const guessInput = document.getElementById('guess-input');
 const message = document.querySelector(".message");
-let hiddenNumber;
-let count = 1;
-let gameOver = false;
 
-let colors = [
-    "#a31c1c",
-    "#68a31c"
-]
+let hiddenNumber, count = 1, gameOver = false;
+let colors = ["#a31c1c", "#68a31c"];
+box[0].innerHTML = "Game Over!!!";
+box[1].innerHTML = "Try Again";
+
+// box[1].onclick = () => {
+
+// }
 
 guessBtn.onclick = () => {
+    console.log(box)
     hiddenNumber = randomGeneratedNumber();
     console.log(hiddenNumber);
     checkIfgameOver();
@@ -21,7 +24,13 @@ function checkIfgameOver() {
     if (count === 5) {
         gameOver = true;
         if (gameOver === true && Number(inputValue) !== hiddenNumber) {
-            document.querySelector("body").innerHTML = "Game Over!!!";
+            box.forEach(box => {
+                if (box.classList.contains("reset") || box.classList.contains("game-over")) {
+                    box.style.display = "flex";
+                } else {
+                    box.style.display = "none";
+                }
+            })
         }
     } else {
         if (inputValue === "" || !Number(inputValue)) {
@@ -42,14 +51,3 @@ function checkIfgameOver() {
 let randomGeneratedNumber = () => {
     return Math.floor(Math.random() * 11);
 }
-
-/*
-Customer was visited 23/09/2021 2649622
-
-reference initial comment by NMD. Let customer complain for new SR. 
-It is unprofessional to reopen SR that has been worked on and 
-esolved as this will only count against the Unit. Customers are trying 
-to bypass or game the system because 
-they don't want to visist the customer care due to queue 
-customer has been advised to complain apropraitely 
-*/
